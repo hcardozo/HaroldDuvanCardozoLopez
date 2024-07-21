@@ -20,7 +20,7 @@ Antes de comenzar, asegúrate de tener instalados los siguientes requisitos:
 1. Clona el repositorio:
 
    ```bash 
-   git clone https://github.com/usuario/proyecto-angular.git
+   git clone https://github.com/hcardozo/HaroldDuvanCardozoLopez
    ```
 
 2. Instala las dependencias:
