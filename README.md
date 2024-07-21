@@ -56,8 +56,6 @@ Esto ejecutará Jest y mostrará los resultados de las pruebas en la consola.
 Configuración de Jest:
 
    Jest está configurado en el archivo jest.config.js.
-   
-Contribuciones
 
 
 ---
