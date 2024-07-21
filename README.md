@@ -22,9 +22,6 @@ Antes de comenzar, asegúrate de tener instalados los siguientes requisitos:
    ```bash 
    git clone https://github.com/usuario/proyecto-angular.git
    ```
-   ```bash
-   cd bank-project
-   ```
 
 2. Instala las dependencias:
    
