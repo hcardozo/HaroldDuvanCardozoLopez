@@ -1,0 +1,42 @@
+<section class="form-container">
+  <div class="header">
+    <h2>
+      @if(productForm.get('id')?.disabled){
+      Formulario de Edicion
+      } @else {
+      Formulario de Registro
+      }
+    </h2>
+  </div>
+
+  <div class="form-content">
+    <form action="" [formGroup]="productForm">
+      <app-generic-input formControlName="id" [label]="'ID'" [errorMessages]="errorList"
+        [required]="true"></app-generic-input>
+
+      <app-generic-input formControlName="name" [label]="'Nombre'" [errorMessages]="errorList"
+        [required]="true"></app-generic-input>
+
+      <app-generic-input formControlName="description" [label]="'Descripción'" [errorMessages]="errorList"
+        [required]="true"></app-generic-input>
+
+      <app-generic-input formControlName="logo" [label]="'Logo'" [errorMessages]="errorList"
+        [required]="true"></app-generic-input>
+
+      <app-generic-input formControlName="releaseDate" [label]="'Fecha Liberación'" [errorMessages]="errorList"
+        [required]="true" [type]="'date'"></app-generic-input>
+
+      <app-generic-input formControlName="revisionDate" [label]="'Fecha Revisión'" [errorMessages]="errorList"
+        [required]="true" [type]="'date'"></app-generic-input>
+    </form>
+  </div>
+
+  <div class="button-contaner">
+    <button class="custom-button secondary-button" (click)="onReset()">
+      Reiniciar
+    </button>
+    <button class="custom-button primary-button" [disabled]="!productForm.valid" (click)="onSave()">
+      Enviar
+    </button>
+  </div>
+</section>

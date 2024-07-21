@@ -1,0 +1,31 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  .input-label {
+    font-weight: bold;
+    margin: 10px 0px;
+  }
+  .input {
+    outline: 0;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid grey;
+
+    &.show-error {
+      border: 1px solid red;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+
+  .error {
+    margin: 8px 0px;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 14px;
+  }
+}

@@ -1,0 +1,46 @@
+.form-container {
+  background-color: #fff;
+  width: 60%;
+  max-width: 900px;
+  margin: 60px auto;
+  display: flow-root;
+  .header {
+    text-align: center;
+    margin: 20px 0px;
+    border-bottom: 1px solid grey;
+  }
+
+  .form-content {
+    margin: 0px 40px 40px 40px;
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      @media screen and (max-width: 860px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      gap: 0px 30px;
+
+      app-generic-input {
+        display: block;
+      }
+    }
+  }
+
+  .button-contaner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    button {
+      margin: 0 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .form-container {
+    width: 80%;
+    .form-content form {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

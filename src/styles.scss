@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.custom-button {
+  min-width: 100px;
+  min-height: 50px;
+  border-radius: 5px;
+  font-weight: bold;
+  border-width: 1px;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.primary-button {
+  background-color: #ffeb68;
+  border-color: #fdf1a4;
+  color: #48557d;
+}
+
+.secondary-button {
+  background-color: #eaecf2;
+  border-color: #eaecf2;
+  color: #48557d;
+}

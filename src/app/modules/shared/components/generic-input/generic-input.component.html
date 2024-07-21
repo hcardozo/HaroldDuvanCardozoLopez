@@ -1,0 +1,14 @@
+<div class="input-container">
+  <label class="input-label" for="input{{ label }}">{{ label }}</label>
+
+  <input [type]="type" class="input" [ngClass]="{ 'show-error': (formControl.touched) && formControl.errors }"
+    id="input{{ label }}" type="text" [formControl]="formControl" [placeholder]="placeholder" />
+  <div class="error">
+    @if (formControl.touched) {
+    @for(key of
+    errorsToArray(formControl.errors); track $index){
+    {{ errorMessages.get(key) }}
+    }
+    }
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="search-bar">
+        <app-generic-input [formControl]="searchFormControl" [placeholder]="'Search...'"></app-generic-input>
+
+        <button class="custom-button primary-button" (click)="redirect('/products/register')"> Agregar </button>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    @for(column of columns;track column.value){
+                    <th [width]="column.width" [style]="{'min-width': column.minWidth}">
+                        <div>
+
+                            {{ column.label }}
+                            @if(column.tooltip) {
+                            <app-svg-icon [name]=" icons.INFO"></app-svg-icon>
+                            }
+                        </div>
+                    </th>
+                    }
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(product of productToShow; track product.id;){
+                <tr>
+                    @for(column of columns;track column.value){
+                    <td [width]="column.width" [style]="{'min-width': column.minWidth}">
+                        <div>
+                            @if(column.type == columnType.IMAGE){
+                            <img class="row-image" [src]="product[column.value]" />
+                            }@else {
+                            {{ product[column.value] }}
+                            }
+                        </div>
+                    </td>
+                    }
+                    <td [width]="'40px'" [style]="{'min-width': '25px'}">
+                        <div class="options" (click)="showOptionForIndex = showOptionForIndex == $index ? null :$index">
+                            <app-svg-icon [name]="icons.TABLE_OPTIONS"></app-svg-icon>
+                        </div>
+                        @if (showOptionForIndex == $index) {
+                        <div class="dropdown-container">
+                            <div class="floating-dropdown">
+                                <span (click)="redirect('/products/update', product)">
+                                    Editar <app-svg-icon [name]="icons.EDIT"></app-svg-icon>
+                                </span>
+                                <span (click)="showModalEditRow(product, deleteProduct)">
+                                    Eliminar <app-svg-icon [name]="icons.DELETE"></app-svg-icon>
+                                </span>
+                            </div>
+
+                        </div>
+                        }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <span class="total-rows">{{productToShow.length}} Resultados</span>
+
+        <select class="page-selector" [formControl]="rowsPerPageFormControl">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+
+</div>
+
+<ng-template #deleteProduct>
+    <div class="modal-container">
+        <div class="title">
+            <span>¿Estas seguro de eliminar el producto <strong>{{productToDelete?.name}}</strong>?</span>
+        </div>
+        <hr>
+        <div class="footer">
+            <button class="custom-button secondary-button" (click)="closeModal()">Cancelar</button>
+            <button class="custom-button primary-button" (click)="confirmDeleteProduct()">Confirmar</button>
+        </div>
+    </div>
+</ng-template>

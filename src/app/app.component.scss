@@ -1,0 +1,24 @@
+section {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0px;
+
+        .title {
+            margin: auto 0 auto 20px;
+            font-size: medium;
+            color: blue;
+        }
+    }
+
+}
+
+.content {
+    background-color: #f4f6f9;
+
+    flex: 1 1 auto;
+}
